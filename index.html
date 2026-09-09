@@ -115,6 +115,11 @@
     color:var(--accent, var(--orange)); line-height:1; text-transform:uppercase; margin-bottom:14px;
   }
   .jp-mark{display:block; font-size:19px; font-weight:700; color:#57554f; letter-spacing:0.02em;}
+  .mode-tag{
+    display:inline-block; vertical-align:middle; font-size:11px; font-weight:700;
+    padding:3px 10px; border-radius:999px; background:var(--orange); color:#fff; margin-left:4px;
+  }
+  .mode-tag-join{background:var(--navy);}
   .section-dark .jp-mark{color:#c9c7c0;}
   .section-label{position:relative; z-index:1; margin-bottom:36px; padding-bottom:22px; border-bottom:3px solid var(--accent, var(--orange));}
   h2.headline{
@@ -345,6 +350,15 @@
   .footer-nav a:hover{color:var(--orange-deep);}
   .footer-copy{font-size:12.5px; color:#8a8880;}
 
+  .top-nav{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--paper);}
+  .top-nav-inner{display:flex; gap:28px; padding:18px 28px; flex-wrap:wrap;}
+  .top-nav-inner a{font-size:13.5px; font-weight:700; color:#4a4844; position:relative; padding:2px 0;}
+  .top-nav-inner a::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--orange);
+    transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+  }
+  .top-nav-inner a:hover::after{transform:scaleX(1);}
+
   /* ---------- responsive (placed last so it wins the cascade) ---------- */
   /* ---------- keep desktop layout structure always; shrink sizes only ---------- */
   @media (max-width:900px){
@@ -356,7 +370,7 @@
     .hero-v2{padding:80px 12px 0;}
     .hero-logo{height:28px; margin-bottom:14px;}
     .hero-kicker{font-size:10px; margin-bottom:10px;}
-    .hero-v2 h1{font-size:16px; line-height:1.4;}
+    .hero-v2 h1{font-size:24px; line-height:1.45;}
     .hero-v2 h1 .accent{white-space:normal;}
     .nowrap-jp{white-space:normal;}
     .hero-grid{gap:20px; grid-template-columns:1fr; align-items:start;}
@@ -367,7 +381,7 @@
     .problem h2{font-size:15px; line-height:1.5;}
     .hero-grid{align-items:start;}
     .en-mark{font-size:22px; margin-bottom:6px;}
-    .jp-mark{font-size:9px;}
+    .jp-mark{font-size:13px;}
     .section-label{margin-bottom:16px; padding-bottom:10px;}
     .lede{font-size:9.5px; margin-top:10px;}
     .flow{margin-top:24px;}
@@ -425,7 +439,8 @@
     .trial-heading-big{font-size:20px; padding-bottom:14px; margin-bottom:16px;}
     .speech-bubble{padding:12px 14px; font-size:8px; max-width:220px;}
     .corner-mark{display:none;}
-    .footer-nav{gap:8px 12px;}
+    .top-nav-inner{gap:14px 18px; padding:12px 12px;}
+    .top-nav-inner a{font-size:10px;}
     .footer-nav a{font-size:8px; white-space:nowrap;}
     .footer-copy{font-size:7px;}
     footer{padding:24px 0;}
@@ -440,7 +455,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width:26px; height:26px;"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1"/></svg>
   </a>
   <div class="side-foot">
-    <a class="side-icon" href="#voices" title="受講者の声">
+    <a class="side-icon" href="#voices" title="メンバーの声">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 9 9 0 0 1-3.6-.8L3 20l1.3-3.9a8.4 8.4 0 0 1-.8-3.6A8.4 8.4 0 0 1 12 3.6 8.4 8.4 0 0 1 21 11.5z"/></svg>
     </a>
   </div>
@@ -462,6 +477,16 @@
   </div>
 </section>
 
+<nav class="top-nav">
+  <div class="wrap top-nav-inner">
+    <a href="#curriculum">カリキュラム</a>
+    <a href="#instructor">講師紹介</a>
+    <a href="#voices">メンバーの声</a>
+    <a href="#pricing">PLAN</a>
+    <a href="https://www.instagram.com/daha.program/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</nav>
+
 <section id="curriculum" class="section-relative" style="border-top:1px solid var(--line); --accent:var(--orange);">
   <div class="corner-mark">DAHA.</div>
   <div class="wrap">
@@ -469,7 +494,7 @@
       <span class="en-mark">Curriculum</span>
       <span class="jp-mark">カリキュラム全体図</span>
     </div>
-    <p class="lede">4つの柱が並走しながら、実践力を積み上げていくカリキュラムです。</p>
+    <p class="lede">個別カリキュラムと仲間との合同カリキュラムで、実践力を積み上げていきます。</p>
 
     <div class="flow">
       <div class="flow-node"><div class="flow-dot">01</div><div class="flow-label">基礎<br>トレーニング</div></div>
@@ -490,7 +515,7 @@
   <div class="wrap">
     <div class="section-label reveal">
       <span class="en-mark">01 Basic Training</span>
-      <span class="jp-mark">基礎トレーニング</span>
+      <span class="jp-mark">基礎トレーニング <span class="mode-tag">個別</span></span>
     </div>
     <h3 style="max-width:640px;">感覚だけでは同じものしか作れない</h3>
     <p style="margin-top:14px; font-size:14.5px; color:#4a4844; max-width:560px; margin-bottom:44px;">悪い環境でもクオリティを出すためには映像のルールの理解が大切です。基礎課題でしっかりと土台をつくりましょう。</p>
@@ -519,7 +544,7 @@
   <div class="wrap">
     <div class="section-label reveal">
       <span class="en-mark">02 Group Lecture</span>
-      <span class="jp-mark">みんなでレクチャー（月2回）</span>
+      <span class="jp-mark">みんなでレクチャー（月2回） <span class="mode-tag mode-tag-join">合同</span></span>
     </div>
     <h3 class="nowrap-jp" style="max-width:640px;">仲間の課題も、自分の課題として。</h3>
     <p style="margin-top:14px; font-size:14.5px; color:#4a4844; max-width:620px; margin-bottom:36px;">競い合うことで切磋琢磨できる環境を月に2回。オンライン勉強会で仲間の課題を共に考え、学ぶ。何十倍も成長スピードを高めるために。</p>
@@ -535,7 +560,7 @@
       <div class="block-card block-dark reveal reveal-2">
         <div class="block-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M10.5 8.3v5.4l4.5-2.7z" fill="currentColor" stroke="none"/><path d="M8 21h8M12 17v4"/></svg></div>
         <h4>デザイン＆モーションの直接指導とプレゼン</h4>
-        <p>メンバー作成したデザイン＆Aeモーションを皆でクオリティチェック。レベルを上げるための作業や考え方を講師から直接学びます。</p>
+        <p>メンバーの作成したデザイン＆Aeモーションを皆でクオリティチェック。レベルを上げるための作業や考え方を講師から直接学びます。</p>
       </div>
       <div class="block-card block-light reveal reveal-3">
         <div class="block-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 3v3h6V3M8 12l2.5 2.5L16 9"/></svg></div>
@@ -551,7 +576,7 @@
   <div class="wrap">
     <div class="section-label reveal">
       <span class="en-mark">03 Mini Camp</span>
-      <span class="jp-mark">ミニキャンプ（月1回・対面）</span>
+      <span class="jp-mark">ミニキャンプ（月1回・対面） <span class="mode-tag mode-tag-join">合同</span></span>
     </div>
     <h3 style="max-width:640px;">目の前で直接学べる。仲間と試行錯誤。</h3>
     <p style="margin-top:14px; font-size:14.5px; color:#4a4844; max-width:620px; margin-bottom:36px;">座学、バミリやケーブル、照明やリハなど映像の基礎的なスキルをしっかりと身につける。そして、いちばん難しいディレクション（演出）〜画づくり／カット割を習得する<span class="nowrap-jp">月1度の濃厚な日。</span></p>
@@ -585,7 +610,7 @@
   <div class="wrap">
     <div class="section-label reveal">
       <span class="en-mark">04 Portfolio</span>
-      <span class="jp-mark">ポートフォリオ制作</span>
+      <span class="jp-mark">ポートフォリオ制作 <span class="mode-tag">個別</span></span>
     </div>
     <h3 style="max-width:640px;">勝てるポートフォリオ。作りながら学んでいく。</h3>
     <p style="margin-top:14px; font-size:14.5px; color:#4a4844; max-width:620px; margin-bottom:36px;">打ち合わせ→構成／デザイン→撮影→編集のワークフローの確立と、それぞれのクオリティを0からひとつひとつ身につけていきます。毎回のフィードバックをもとに修正をしていき、現在地の自分の制作よりも高いレベルへ。</p>
@@ -781,15 +806,8 @@
   <div class="wrap footer-inner">
     <div>
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAABTCAMAAABDNPmEAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmIzYTdmMzU0LWUxNGYtNDk1NC05YmE4LWFiZjBmODE5NmI1YgAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNoFkRfmZOiLW963CtDNFDSZQAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6MTU4Njg3NWQtNjViYi00MWZkLTg4M2UtMTBmMTM0MTMyNzgwbHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaAdv5MnaaEVb7NLunNVtRMQAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIOBnaJVTbmYsYhJoHwfZmV/Cso5CMQfu+TZNZZrpgSZKpGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2jLkHZ0U0CmCnn5xEbOa8qaAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggOnx5K/+OWj67jYbkNJdoUICtncYiGLbarsp6rvz2OUJkbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTpiM2E3ZjM1NC1lMTRmLTQ5NTQtOWJhOC1hYmYwZjgxOTZiNWIvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDpmMzcxMDQzMS0xZDBkLTQzYmEtODEyOC1mYTkwMjM3OTU0MmJyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg4GdolVNuZixiEmgfB9mZX8KyjkIxB+75Nk1lmumBJkqiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIDG1atMrzbfYAk9SnkPzLBxPYuC7zUU/mhYHvU6D0+clomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIMUX7vyjFxSM2yEmwWh/2CeLho4SNKF5rEKUcuQ7acnkdGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="DAHAprogram" style="height:32px; width:auto;">
-      <nav class="footer-nav">
-        <a href="#curriculum">カリキュラム</a>
-        <a href="#instructor">講師紹介</a>
-        <a href="#voices">受講者の声</a>
-        <a href="#pricing">PLAN</a>
-        <a href="https://www.instagram.com/daha.program/">Instagram</a>
-      </nav>
     </div>
-    <div class="footer-copy">© DAHAprogram. 早めに独学の草野球レベルを脱け出そう。</div>
+    <div class="footer-copy">©2026 Channel EVERS , All Rights Reserved</div>
   </div>
 </footer>
 
