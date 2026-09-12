@@ -235,20 +235,9 @@
     background:linear-gradient(transparent, rgba(0,0,0,0.6));
     color:#fff; font-weight:700; font-size:13px;
   }
-  .process-flow{display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:36px; padding:26px; background:#EFEDE7; border-radius:4px;}
-  .process-bar{
-    position:relative; display:flex; align-items:center; gap:10px; padding:15px 18px 15px 22px;
-    border-radius:4px; color:#fff; font-size:16px; font-weight:900; white-space:nowrap;
-    box-shadow:0 3px 8px rgba(0,0,0,0.12);
-  }
-  .bar-mark{position:absolute; left:9px; top:13px; bottom:13px; width:3px; background:rgba(255,255,255,0.85); border-radius:2px;}
-  .process-arrow{font-size:18px; font-weight:700; color:#b8b5ad; flex-shrink:0;}
-  @media (max-width:900px){
-    .process-flow{padding:10px; gap:5px;}
-    .process-bar{padding:8px 10px 8px 15px; font-size:9px; border-radius:2px; gap:6px;}
-    .bar-mark{left:5px; top:6px; bottom:6px; width:2px;}
-    .process-arrow{font-size:10px;}
-  }
+  .process-flow-img{margin-bottom:36px; border-radius:4px; overflow:hidden;}
+  .process-flow-img img{width:100%; height:auto; display:block;}
+  .flow-6{grid-template-columns:repeat(6,1fr); margin-top:0; margin-bottom:36px;}
   .portfolio-gallery{display:grid; grid-template-columns:1.3fr 1.3fr 0.75fr; grid-template-rows:190px 190px; gap:12px;}
   .portfolio-item.pf-interview{grid-column:1; grid-row:1;}
   .portfolio-item.pf-promotion{grid-column:2; grid-row:1;}
@@ -677,18 +666,13 @@
     </div>
     <h3 style="max-width:640px;">勝てるポートフォリオ。作りながら学んでいく。</h3>
     <p style="margin-top:14px; font-size:14.5px; color:#4a4844; max-width:620px; margin-bottom:28px;">打ち合わせ→構成／デザイン→撮影→編集のワークフローの確立と、それぞれのクオリティを0からひとつひとつ身につけていきます。毎回のフィードバックをもとに修正をしていき、現在地の自分の制作よりも高いレベルへ。</p>
-    <div class="process-flow">
-      <div class="process-bar" style="background:var(--orange);"><span class="bar-mark"></span>打ち合わせ</div>
-      <div class="process-arrow">→</div>
-      <div class="process-bar" style="background:var(--salmon);"><span class="bar-mark"></span>構成</div>
-      <div class="process-arrow">→</div>
-      <div class="process-bar" style="background:var(--green);"><span class="bar-mark"></span>デザイン</div>
-      <div class="process-arrow">→</div>
-      <div class="process-bar" style="background:var(--navy);"><span class="bar-mark"></span>制作</div>
-      <div class="process-arrow">→</div>
-      <div class="process-bar" style="background:var(--brown);"><span class="bar-mark"></span>撮影／演出</div>
-      <div class="process-arrow">→</div>
-      <div class="process-bar" style="background:var(--dark);"><span class="bar-mark"></span>編集</div>
+    <div class="flow flow-6">
+      <div class="flow-node"><div class="flow-dot" style="--dot:var(--orange);">1</div><div class="flow-label">打ち合わせ</div></div>
+      <div class="flow-node"><div class="flow-dot" style="--dot:var(--salmon);">2</div><div class="flow-label">構成</div></div>
+      <div class="flow-node"><div class="flow-dot" style="--dot:var(--green);">3</div><div class="flow-label">デザイン</div></div>
+      <div class="flow-node"><div class="flow-dot" style="--dot:var(--navy);">4</div><div class="flow-label">制作</div></div>
+      <div class="flow-node"><div class="flow-dot" style="--dot:var(--brown);">5</div><div class="flow-label">撮影／演出</div></div>
+      <div class="flow-node"><div class="flow-dot" style="--dot:var(--dark);">6</div><div class="flow-label">編集</div></div>
     </div>
     <div class="portfolio-gallery">
       <div class="portfolio-item pf-reel">
